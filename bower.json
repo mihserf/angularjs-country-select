@@ -1,5 +1,6 @@
 {
 	"name": "angularjs-country-select",
+  "version": "0.0.1",
 	"main": "angular.country-select.js",
 	"dependencies": {
 		"angular": "~1.2.0"
