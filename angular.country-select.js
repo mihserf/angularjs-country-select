@@ -256,7 +256,7 @@ angular.module('countrySelect', []).directive('countrySelect', function() {
 
 
 	return {
-		template: '<select ng-value="ngModel" ng-options="c.code as c.name for c in countries">',
+		template: '<select ng-value="ngModel" ng-options="c.code as c.name for c in countries"><option value=""></option></select>',
 		replace: true,
 		scope: { ngModel: '=' },
 
