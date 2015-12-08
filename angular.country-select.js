@@ -1,8 +1,8 @@
 'use strict';
 
-angular.module('countrySelect', []).directive('countrySelect', function() {
-
-	var countries = [
+angular.module('countrySelect', []).service('countries', function(){
+	var service = this;
+	service.countries = [
 		{ code: "af", name: "Afghanistan" },
 		{ code: "ax", name: "Åland Islands" },
 		{ code: "al", name: "Albania" },
@@ -253,6 +253,21 @@ angular.module('countrySelect', []).directive('countrySelect', function() {
 		{ code: "zm", name: "Zambia" },
 		{ code: "zw", name: "Zimbabwe"}
 	];
+	service.getCountryName = function(code){
+		var filtered_country = service.countries.filter(function(country_data) {
+			return country_data.code == code;
+		})[0];
+		if (filtered_country){
+			return filtered_country.name;
+		} else {
+			return '';
+		}
+	}
+
+	return
+}).directive('countrySelect', function(countries) {
+
+	var countries = countries.countries;
 
 
 	return {
